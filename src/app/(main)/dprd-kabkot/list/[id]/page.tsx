@@ -13,7 +13,7 @@ interface Page {
 export default function Page({ params }: Page) {
   const { id } = params;
   const { data, error } = useSWR(
-    `https://caleg.zakiego.com/api/dprd-kabupaten-kota/dapil/${id}}`,
+    `https://caleg.zakiego.com/api/dprd-kabupaten-kota/dapil/${id}`,
     fetcher
   );
   if (!data) return <div>Loading...</div>;
