@@ -12,14 +12,14 @@ import { Badge } from "@/components/ui/badge";
 import { FaLink } from "react-icons/fa";
 import Link from "next/link";
 import useSWR from "swr";
-import { useSearchParams } from "next/navigation";
+
 import Header from "@/app/components/Header";
 
 const fecther = (url: string) => fetch(url).then((res) => res.json());
 
 export default function Page() {
-  const searchParams = useSearchParams()
-  const search = searchParams.get('search')
+
+
   const { data, error } = useSWR(
     "https://caleg.zakiego.com/api/dprd-kabupaten-kota/dapil/list",
     fecther
@@ -39,7 +39,7 @@ console.log(search)
             searchParams.set("q", e.target.value);
           }}
         /> */}
-        {search}
+
      
       <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">
         <div className="border shadow-sm rounded-lg">
