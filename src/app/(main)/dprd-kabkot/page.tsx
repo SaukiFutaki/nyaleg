@@ -27,7 +27,7 @@ export default function Page() {
 
   if (!data) return <h1>...Loading</h1>;
   if (error) return <h1>{error.message}</h1>;
-console.log(search)
+
   return (
     <div>
     <Header/>
