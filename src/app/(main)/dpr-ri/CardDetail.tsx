@@ -13,9 +13,10 @@ type Card  = {
   umur : number
   pasFoto :string
   agama :string
+  riwayatPekerjaan : string[] | null
 }
 
-export default function CardDetail({name, namaPartai,umur, jenisKelamin,pasFoto,agama}:Card) {
+export default function CardDetail({name, namaPartai,umur, jenisKelamin,pasFoto,agama,riwayatPekerjaan}:Card) {
   return (
     <Card className="w-full max-w-lg">
       <CardHeader>
@@ -53,6 +54,9 @@ export default function CardDetail({name, namaPartai,umur, jenisKelamin,pasFoto,
           <div>{agama}</div>
           <div className="font-medium">Address</div>
           <div>1234 Elm Street, Toronto, ON</div>
+          <div className="font-medium">Riwayat Pekerjaan</div>
+          <div>{riwayatPekerjaan} </div>
+        
         </dl>
       </CardContent>
     </Card>

@@ -24,10 +24,25 @@ import Header from "@/app/components/Header";
       <div>
         <Header/>
         <p>{data.data.map((list :any)=>(
-          <div key={list.id}>
-          <CardDetail name={list.nama} namaPartai={list.namaPartai} jenisKelamin={list.jenisKelamin} umur={list.usia} pasFoto={list.pasFoto} agama={list.agama}/>
-          </div>
-        ))}</p>
+        <div key={list.id}>
+          <CardDetail 
+            name={list.nama} 
+            namaPartai={list.namaPartai} 
+            jenisKelamin={list.jenisKelamin} 
+            umur={list.usia} 
+            pasFoto={list.pasFoto} 
+            agama={list.agama} 
+            riwayatPekerjaan={list.riwayatPekerjaan?.map((item:any) => (
+              <div key={item}>
+                <p>{item.namaPerusahaanLembaga || "-"}</p>
+                <p>{item.jabatan || "-"}</p>
+                <p>{item.tahunMasuk || "-"}</p>
+                <p>{item.tahunKeluar || "-"}</p>
+              </div>
+            ))}
+          />
+        </div>
+      ))}</p>
       </div>
     )
   }
