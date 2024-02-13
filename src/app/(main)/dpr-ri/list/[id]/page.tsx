@@ -3,6 +3,8 @@ import Header from "@/app/components/Header";
 import Image from "next/image";
 import Link from "next/link";
 import useSWR from "swr";
+import Loading from "@/app/loading";
+
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 interface Page {
@@ -16,7 +18,7 @@ export default function Page({ params }: Page) {
     `https://caleg.zakiego.com/api/dpr-ri/dapil/${id}`,
     fetcher
   );
-  if (!data) return <div>Loading...</div>;
+  if (!data) return <Loading/>
   if (error) return <div>{error.message}</div>;
 
   return (

@@ -3,7 +3,12 @@
  * @see https://v0.dev/t/IzedrDYnfSL
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
-import { TableHead, TableRow, TableHeader, TableCell, TableBody, Table } from "@/components/ui/table"
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/components/ui/avatar"
+
 import { CardTitle, CardDescription, CardHeader, CardContent, Card } from "@/components/ui/card"
 import Image from "next/image"
 
@@ -24,13 +29,11 @@ export default function CardDetail({name, namaPartai,umur, jenisKelamin,pasFoto,
       <CardHeader>
         <div className="flex items-center space-x-4">
           <div className="flex-shrink-0 w-12 h-12">
-            <Image
-              alt="Employee"
-              className="rounded-full"
-              height={60}
-              src={pasFoto}
-              width={70}
-            />
+            <Avatar>
+
+            <AvatarImage src={pasFoto} alt="@shadcn" />
+             <AvatarFallback>CN</AvatarFallback>
+            </Avatar>
           </div>
           <div className="grid gap-1.5">
             <CardTitle>{name}</CardTitle>

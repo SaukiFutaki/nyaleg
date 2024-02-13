@@ -14,6 +14,7 @@ import Link from "next/link";
 import useSWR from "swr";
 import Header from "@/app/components/Header";
 import { useRouter } from "next/navigation";
+import Loading from "@/app/loading";
 
 const fecther = (url: string) => fetch(url).then((res) => res.json());
 
@@ -24,7 +25,7 @@ export default function Page() {
     fecther
   );
 
-  if (!data) return <h1>...Loading</h1>;
+  if (!data) return <Loading/>;
   if (error) return <h1>{error.message}</h1>;
 
   return (
