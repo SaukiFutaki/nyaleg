@@ -25,9 +25,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange>
             <NextTopLoader />                                                
-          <div className="flex">
+          <div className="flex ">
             <Sidebar />
-            <div className="flex-1">
+            <div className="flex-1 hidden lg:block">
               {children}
             </div>
           </div>

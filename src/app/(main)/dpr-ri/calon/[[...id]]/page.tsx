@@ -3,6 +3,7 @@
   import useSWR from 'swr'
 import CardDetail from '../../CardDetail'
 import Header from "@/app/components/Header";
+import { TableHead, TableRow, TableHeader, TableCell, TableBody, Table } from "@/components/ui/table"
 
 
   const fetcher = (url: string) => fetch(url).then((res) => res.json())
@@ -22,8 +23,11 @@ import Header from "@/app/components/Header";
  
     return(
       <div>
-        <Header/>
-        <p>{data.data.map((list :any)=>(
+        <Header />
+        <div className='hidden sm:hidden lg:pt-8 pr-4 lg:block '>
+          
+     
+        {data.data.map((list :any)=>(
         <div key={list.id}>
           <CardDetail 
             name={list.nama} 
@@ -32,17 +36,29 @@ import Header from "@/app/components/Header";
             umur={list.usia} 
             pasFoto={list.pasFoto} 
             agama={list.agama} 
+            pekerjaan={list.pekerjaan}
             riwayatPekerjaan={list.riwayatPekerjaan?.map((item:any) => (
-              <div key={item}>
-                <p>{item.namaPerusahaanLembaga || "-"}</p>
-                <p>{item.jabatan || "-"}</p>
-                <p>{item.tahunMasuk || "-"}</p>
-                <p>{item.tahunKeluar || "-"}</p>
-              </div>
+              <Table key={list}>
+            
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Nama Perusahaan</TableHead>
+                  <TableHead>Posisi</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                <TableRow>
+                  <TableCell>{item.namaPerusahaanLembaga}</TableCell>
+                  <TableCell>{item.jabatan}</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          
             ))}
           />
         </div>
-      ))}</p>
+      ))}
+         </div>
       </div>
     )
   }

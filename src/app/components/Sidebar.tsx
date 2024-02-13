@@ -11,6 +11,8 @@ export default function SideBar() {
   const pathname = usePathname();
  
   return (
+    <div className="hidden lg:block">
+
     <div className="flex flex-col gap-2 ">
     <div className="flex h-[60px] items-center px-6 border-b dark:bg-gray-800/40 bg-gray-100/40 ">
       <Link className="flex items-center gap-2 font-semibold" href="/">
@@ -29,14 +31,14 @@ export default function SideBar() {
         <Link
          className={`${pathname === '/dpd' ? "flex items-center gap-3 rounded-lg bg-gray-100 px-3 py-2 text-gray-900 transition-all hover:text-gray-900 dark:bg-gray-800 dark:text-gray-50 dark:hover:text-gray-50" : "py-1  flex items-center gap-2 transition-all "}`}
          href="/dpd"
-        >
+         >
           <FcDepartment className="h-4 w-4" />
           DPD
           
         </Link>
         <Link
             className={`${pathname === '/dpr-ri' ? "flex items-center gap-3 rounded-lg bg-gray-100 px-3 py-2 text-gray-900 transition-all hover:text-gray-900 dark:bg-gray-800 dark:text-gray-50 dark:hover:text-gray-50" : "py-1 flex items-center gap-2 transition-all "}`}
-          href="/dpr-ri"
+            href="/dpr-ri"
         >
           <FcDepartment className="h-4 w-4" />
           DPR RI
@@ -51,7 +53,7 @@ export default function SideBar() {
         <Link
         className={`${pathname === '/dprd-kabkot' ? "flex items-center gap-3 rounded-lg bg-gray-100 px-3 py-2 text-gray-900 transition-all hover:text-gray-900 dark:bg-gray-800 dark:text-gray-50 dark:hover:text-gray-50" : "py-1 flex items-center gap-2 transition-all "}`}
           href="/dprd-kabkot"
-        >
+          >
           <FcDepartment className="h-4 w-4" />
           DPRD Kab/Kota
         </Link>
@@ -60,5 +62,6 @@ export default function SideBar() {
     </div>
   </div>
 
+          </div>
   );
 }

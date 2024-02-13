@@ -3,6 +3,7 @@
  * @see https://v0.dev/t/IzedrDYnfSL
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
+import { TableHead, TableRow, TableHeader, TableCell, TableBody, Table } from "@/components/ui/table"
 import { CardTitle, CardDescription, CardHeader, CardContent, Card } from "@/components/ui/card"
 import Image from "next/image"
 
@@ -14,24 +15,21 @@ type Card  = {
   pasFoto :string
   agama :string
   riwayatPekerjaan : string[] | null
+  pekerjaan : string
 }
 
-export default function CardDetail({name, namaPartai,umur, jenisKelamin,pasFoto,agama,riwayatPekerjaan}:Card) {
+export default function CardDetail({name, namaPartai,umur, jenisKelamin,pasFoto,agama,riwayatPekerjaan, pekerjaan}:Card) {
   return (
-    <Card className="w-full max-w-lg">
+    <Card className="w-full ">
       <CardHeader>
         <div className="flex items-center space-x-4">
           <div className="flex-shrink-0 w-12 h-12">
             <Image
               alt="Employee"
               className="rounded-full"
-              height="64"
+              height={60}
               src={pasFoto}
-              style={{
-                aspectRatio: "64/64",
-                objectFit: "cover",
-              }}
-              width="64"
+              width={70}
             />
           </div>
           <div className="grid gap-1.5">
@@ -52,9 +50,10 @@ export default function CardDetail({name, namaPartai,umur, jenisKelamin,pasFoto,
           <div>{umur}</div>
           <div className="font-medium">Agama</div>
           <div>{agama}</div>
-          <div className="font-medium">Address</div>
-          <div>1234 Elm Street, Toronto, ON</div>
+          <div className="font-medium">Pekerjaan</div>
+          <div>{pekerjaan}</div>
           <div className="font-medium">Riwayat Pekerjaan</div>
+
           <div>{riwayatPekerjaan} </div>
         
         </dl>
