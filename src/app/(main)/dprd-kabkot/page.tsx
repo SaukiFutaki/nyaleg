@@ -14,11 +14,12 @@ import Link from "next/link";
 import useSWR from "swr";
 
 import Header from "@/app/components/Header";
+import { useRouter } from "next/navigation";
 
 const fecther = (url: string) => fetch(url).then((res) => res.json());
 
 export default function Page() {
-
+  const router = useRouter()
 
   const { data, error } = useSWR(
     "https://caleg.zakiego.com/api/dprd-kabupaten-kota/dapil/list",
@@ -53,7 +54,7 @@ export default function Page() {
             </TableHeader>
             <TableBody>
               {data.data.map((list: any) => (
-                <TableRow key={list.id}>
+                <TableRow key={list.id} onClick={()=> router.push(`/dprd-kabkot/list/${list.id}`)} className="cursor-pointer" >
                   <TableCell className="">{list.id}</TableCell>
                   <TableCell>{list.namaDapil}</TableCell>
                   <TableCell>

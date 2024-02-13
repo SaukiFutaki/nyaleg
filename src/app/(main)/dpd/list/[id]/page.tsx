@@ -18,7 +18,7 @@ export default function Page({ params }: Page) {
   );
   if (!data) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
-  // console.log(data);
+
   return (
     <div>
       <Header />
